@@ -54,3 +54,37 @@ $ docker run \
 Example results are shown below and can be [viewed here](https://github.com/jhankes/sample/blob/master/test/data/sample-tests.postman_test_run.json):
 
 ![Example test results from Newman](https://github.com/jhankes/sample/raw/master/test/data/newmandockertestresult.png)
+
+## Manual CLI examples with Curl
+```
+# create groups
+$ curl -XPOST localhost:3000/api/v1/groups -v --data "name=blue"
+$ curl -XPOST localhost:3000/api/v1/groups -v --data "name=green"
+$ curl -XPOST localhost:3000/api/v1/groups -v --data "name=red"
+
+...
+
+# create users
+$ curl -XPOST localhost:3000/api/v1/users -v \
+    -d '{"userid":"superman","first_name":"super","last_name":"man","groups":["blue","green","red"]}' \
+    -H "Content-Type: application/json"
+$ curl -XPOST localhost:3000/api/v1/users -v \
+    -d '{"userid":"batman","first_name":"bat","last_name":"man","groups":["blue"]}' \
+    -H "Content-Type: application/json"
+
+...
+
+# get group
+$ curl -XGET localhost:3000/api/v1/groups/blue -v 
+
+```
+## Cleanup
+When using compose
+```
+$ docker-compose down
+
+...
+
+# find the newman container id and 
+$ docker rm -f -v <container_id>
+```
