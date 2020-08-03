@@ -8,7 +8,7 @@ import (
 	"github.com/gofiber/fiber/middleware"
 	"github.com/jinzhu/gorm"
 
-	db "github.com/jankes/sample/db"
+	db "github.com/jhankes/sample/db"
 	group "github.com/jhankes/sample/model"
 	user "github.com/jhankes/sample/model"
 

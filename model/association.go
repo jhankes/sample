@@ -1,9 +1,10 @@
 package model
 
 import (
-	"github.com/jankes/sample/db"
+	"github.com/jhankes/sample/db"
 )
 
+//CreateAssociation : by userid and group
 func CreateAssociation(userid string, group string) {
 	// create association
 	database := db.DBConn
@@ -11,16 +12,19 @@ func CreateAssociation(userid string, group string) {
 	database.Create(&association)
 }
 
+//DeleteAssociationByID
 func DeleteAssociationByID(id string) {
 	database := db.DBConn
 	database.Where("id = ?", id).Delete(Association{})
 }
 
+//DeleteAssociationByUser
 func DeleteAssociationByUser(userid string) {
 	database := db.DBConn
 	database.Where("user_id = ?", userid).Delete(Association{})
 }
 
+//GetAssociationsByGroupName
 func GetAssociationsByGroupName(name string) UserIDs {
 	uids := []string{}
 
@@ -36,6 +40,7 @@ func GetAssociationsByGroupName(name string) UserIDs {
 	return UserIDs{UserID: uids}
 }
 
+//GetAssociationsByUser
 func GetAssociationsByUser(userid string) []string {
 	uids := []string{}
 
@@ -51,17 +56,20 @@ func GetAssociationsByUser(userid string) []string {
 	return uids
 }
 
+//DeleteAssociationsByGroupName
 func DeleteAssociationsByGroupName(name string) {
 	database := db.DBConn
 	database.Where("group_name = ?", name).Delete(Association{})
 }
 
+//Association
 type Association struct {
 	ID        string `gorm:"primary_key" json:"userid" validator:"nonzero"`
 	UserID    string `gorm:"index:userid_idx" json:"userid" validator:"nonzero,regexp=^[a-zA-Z0-9]+$"`
 	GroupName string `gorm:"index:group_idx" json:"group" validator:"nonzero,regexp=^[a-zA-Z0-9]+$"`
 }
 
+//UserIDs for the group association
 type UserIDs struct {
 	UserID []string `json:"userids"`
 }
