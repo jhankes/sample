@@ -1,7 +1,7 @@
 package model
 
 import (
-	"spankes/sample/db"
+	"github.com/jankes/sample/db"
 )
 
 func CreateAssociation(userid string, group string) {
