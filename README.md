@@ -1,2 +1,2 @@
 # sample
-sample go web app
+a sample go web app
