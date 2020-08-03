@@ -13,7 +13,7 @@ docker-compose up
 ```
 2. Build locally and then run with local Docker image with compose
 ```
-$ docker build -t jhankes/sample:0.1 .
+$ docker build -t jpankes/sample:0.1 .
 
 ...
 
@@ -21,7 +21,7 @@ $ docker-compose up
 ```
 3. Run locally without compose
 ```
-$ docker build -t jhankes/sample:0.1 .
+$ docker build -t jpankes/sample:0.1 .
 
 ...
 
@@ -34,7 +34,7 @@ $ docker run -d \
     --name sample \
     -p 3000:3000 \
     -e "SAMPLE_HOST=sample-postgres" \
-    jhankes/sample:0.1 
+    jpankes/sample:0.1 
 ```
 4.  Run with an IDE, either run the db setup first or supply envs for existing db.
 
