@@ -44,12 +44,20 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[]}"
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -84,11 +92,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						}
@@ -133,11 +142,12 @@
 							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"georgei\",\"last_name\":\"bluthsr\",\"groups\":[]}"
 						},
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						}
@@ -161,7 +171,7 @@
 									"});",
 									"",
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Cannot GET\");",
+									"    pm.expect(pm.response.text()).to.include(\"No user with userid\");",
 									"});"
 								],
 								"type": "text/javascript"
@@ -215,11 +225,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						},
@@ -258,11 +269,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						},
@@ -316,9 +328,12 @@
 							"raw": "name=family"
 						},
 						"url": {
-							"raw": "{{base}}groups",
+							"raw": "{{base}}/groups",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
+							],
+							"path": [
+								"groups"
 							]
 						},
 						"description": "Add a new group"
@@ -353,11 +368,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/family",
+							"raw": "{{base}}/groups/family",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"family"
 							]
 						}
@@ -392,11 +408,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/family",
+							"raw": "{{base}}/groups/family",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"family"
 							]
 						}
@@ -448,9 +465,12 @@
 							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"test\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -496,9 +516,12 @@
 							"raw": "name=family"
 						},
 						"url": {
-							"raw": "{{base}}groups",
+							"raw": "{{base}}/groups",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
+							],
+							"path": [
+								"groups"
 							]
 						},
 						"description": "Add a new group"
@@ -543,9 +566,12 @@
 							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"family\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -580,11 +606,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						}
@@ -619,11 +646,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/family",
+							"raw": "{{base}}/groups/family",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"family"
 							]
 						}
@@ -658,11 +686,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						}
@@ -707,11 +736,12 @@
 							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"georgei\",\"last_name\":\"bluthsr\",\"groups\":[\"family\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						}
@@ -757,9 +787,12 @@
 							"raw": "name=family"
 						},
 						"url": {
-							"raw": "{{base}}groups",
+							"raw": "{{base}}/groups",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
+							],
+							"path": [
+								"groups"
 							]
 						},
 						"description": "Add a new group"
@@ -804,11 +837,12 @@
 							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"family\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						}
@@ -846,11 +880,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						},
@@ -886,11 +921,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/family",
+							"raw": "{{base}}/groups/family",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"family"
 							]
 						}
@@ -914,9 +950,12 @@
 							"raw": "name=green"
 						},
 						"url": {
-							"raw": "{{base}}groups",
+							"raw": "{{base}}/groups",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
+							],
+							"path": [
+								"groups"
 							]
 						},
 						"description": "add a bunch of groups"
@@ -933,9 +972,12 @@
 							"raw": "name=orange"
 						},
 						"url": {
-							"raw": "{{base}}groups",
+							"raw": "{{base}}/groups",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
+							],
+							"path": [
+								"groups"
 							]
 						},
 						"description": "add a bunch of groups"
@@ -943,7 +985,7 @@
 					"response": []
 				},
 				{
-					"name": "AddGroupsOrangeRed",
+					"name": "AddGroupsRed",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -952,9 +994,12 @@
 							"raw": "name=red"
 						},
 						"url": {
-							"raw": "{{base}}groups",
+							"raw": "{{base}}/groups",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
+							],
+							"path": [
+								"groups"
 							]
 						},
 						"description": "add a bunch of groups"
@@ -971,9 +1016,12 @@
 							"raw": "name=purple"
 						},
 						"url": {
-							"raw": "{{base}}groups",
+							"raw": "{{base}}/groups",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
+							],
+							"path": [
+								"groups"
 							]
 						},
 						"description": "add a bunch of groups"
@@ -990,9 +1038,12 @@
 							"raw": "name=black"
 						},
 						"url": {
-							"raw": "{{base}}groups",
+							"raw": "{{base}}/groups",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
+							],
+							"path": [
+								"groups"
 							]
 						},
 						"description": "add a bunch of groups"
@@ -1037,9 +1088,12 @@
 							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"orange\",\"red\",\"purple\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -1074,11 +1128,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/orange",
+							"raw": "{{base}}/groups/orange",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"orange"
 							]
 						}
@@ -1123,9 +1178,12 @@
 							"raw": "{\"userid\":\"mbluth\",\"first_name\":\"michael\",\"last_name\":\"bluth\",\"groups\":[\"orange\",\"red\",\"purple\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -1160,11 +1218,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/orange",
+							"raw": "{{base}}/groups/orange",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"orange"
 							]
 						}
@@ -1209,11 +1268,12 @@
 							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"red\",\"purple\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users/gbluth",
+							"raw": "{{base}}/users/gbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gbluth"
 							]
 						}
@@ -1248,11 +1308,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/orange",
+							"raw": "{{base}}/groups/orange",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"orange"
 							]
 						}
@@ -1297,9 +1358,12 @@
 							"raw": "{\"userid\":\"gmbluth\",\"first_name\":\"georgemichael\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -1344,9 +1408,12 @@
 							"raw": "{\"userid\":\"bbluth\",\"first_name\":\"buster\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -1391,9 +1458,12 @@
 							"raw": "{\"userid\":\"lbluth\",\"first_name\":\"lucille\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -1438,9 +1508,12 @@
 							"raw": "{\"userid\":\"gobbluth\",\"first_name\":\"gob\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}"
 						},
 						"url": {
-							"raw": "{{base}}users",
+							"raw": "{{base}}/users",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
+							],
+							"path": [
+								"users"
 							]
 						},
 						"description": "add a user with no group"
@@ -1475,11 +1548,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/black",
+							"raw": "{{base}}/groups/black",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"black"
 							]
 						}
@@ -1524,11 +1598,12 @@
 							"raw": "{\"userids\":[\"lbluth\",\"bbluth\"]}"
 						},
 						"url": {
-							"raw": "{{base}}groups/black",
+							"raw": "{{base}}/groups/black",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"black"
 							]
 						}
@@ -1563,11 +1638,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/black",
+							"raw": "{{base}}/groups/black",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"black"
 							]
 						}
@@ -1602,11 +1678,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}users/gmbluth",
+							"raw": "{{base}}/users/gmbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gmbluth"
 							]
 						}
@@ -1641,11 +1718,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base}}groups/red",
+							"raw": "{{base}}/groups/red",
 							"host": [
-								"{{base}}groups"
+								"{{base}}"
 							],
 							"path": [
+								"groups",
 								"red"
 							]
 						}
@@ -1680,11 +1758,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base}}users/gmbluth",
+							"raw": "{{base}}/users/gmbluth",
 							"host": [
-								"{{base}}users"
+								"{{base}}"
 							],
 							"path": [
+								"users",
 								"gmbluth"
 							]
 						}
@@ -1693,6 +1772,436 @@
 				}
 			],
 			"description": "Multiple groups and multiple users - updating interactions",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cleanup",
+			"item": [
+				{
+					"name": "DeleteUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "56dc3d31-245f-4ae8-b128-3eba0fd76015",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"User deleted\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/users/gbluth",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"users",
+								"gbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d56885a8-aec1-4189-818e-c13ac1ebd8ab",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"User deleted\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/users/mbluth",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"users",
+								"mbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d822b963-3aff-456c-a480-3c66b4e5659b",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"User deleted\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/users/gmbluth",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"users",
+								"gmbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5c89352-1280-4a5e-9249-252a5d901d1a",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"User deleted\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/users/bbluth",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"users",
+								"bbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "676511e8-b53e-461e-b329-dbc5eade88e9",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"User deleted\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/users/lbluth",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"users",
+								"lbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b213e11d-18d4-4cd5-bc73-612cede8650b",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"User deleted\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/users/gobbluth",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"users",
+								"gobbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroupGreen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "166090b4-d061-4e92-b88d-e9f055affd5a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Group deleted\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/groups/green",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"groups",
+								"green"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroupOrange",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d86d2034-ab49-4e5b-abf7-5095987a857b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Group deleted\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/groups/orange",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"groups",
+								"orange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroupPurple",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7863e70d-29c0-458c-b230-7cf5d2aad22f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Group deleted\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/groups/purple",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"groups",
+								"purple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroupBlack",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "318b31d8-c407-4031-9c9f-937d1274fd00",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Group deleted\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/groups/black",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"groups",
+								"black"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		}
 	],
@@ -1720,7 +2229,7 @@
 	],
 	"variable": [
 		{
-			"id": "bcded44e-9d26-4f55-9c45-e888e719a0e9",
+			"id": "cdc05764-b997-458c-8d52-dff0cf936870",
 			"key": "base",
 			"value": "http://localhost:3000/api/v1/"
 		}
