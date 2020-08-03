@@ -51,6 +51,6 @@ $ docker run \
     -e /etc/newman/sample.postman_environment.json
 ```
 
-Example result:
+Example results are shown below and can be [viewed here](https://github.com/jhankes/sample/blob/master/test/data/sample-tests.postman_test_run.json):
 
-
+![Example test results from Newman](https://github.com/jhankes/sample/raw/master/test/data/newmandockertestresult.png)
