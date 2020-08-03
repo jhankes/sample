@@ -1,0 +1,1729 @@
+{
+	"info": {
+		"_postman_id": "32e033a8-cca2-4eb4-9ac6-1c5db0001d89",
+		"name": "sample-tests",
+		"description": "test sample app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BasicUser",
+			"item": [
+				{
+					"name": "AddUserNoGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d66383a-d19b-4144-b0b1-048960387615",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserNoGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d1f92d2-2904-42a4-ac5e-c90e30dfd47a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserData",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf1ff329-7249-4439-8b9e-dfed46daf76a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gbluth\",\"first_name\":\"georgei\",\"last_name\":\"bluthsr\",\"groups\":[]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"georgei\",\"last_name\":\"bluthsr\",\"groups\":[]}"
+						},
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserThatDoesNotExist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "742f97f6-682c-4655-b501-151b466cb075",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Cannot GET\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/users/fancypants",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"users",
+								"fancypants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserNoGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e90bc6f0-d014-4879-8e01-a53ce6a991b6",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"User deleted\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserThatDoesNotExist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2aa4d369-09e7-49e7-8457-f594730927fd",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"does not exist\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				}
+			],
+			"description": "basic user tests",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "BasicGroup",
+			"item": [
+				{
+					"name": "AddGroupNoUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1476bca-2e68-4b04-90bf-16c01054653e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userids\":[]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "name=family"
+						},
+						"url": {
+							"raw": "{{base}}groups",
+							"host": [
+								"{{base}}groups"
+							]
+						},
+						"description": "Add a new group"
+					},
+					"response": []
+				},
+				{
+					"name": "GetGroupNoUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2535b97-d443-47fb-8d95-3f41e3bf8f79",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userids\":[]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/family",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"family"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroupNoUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0a5c8429-0b3f-4e04-aef2-ead3a4044822",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Group deleted\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/family",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"family"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Basic group tests",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "UserGroupInteraction",
+			"item": [
+				{
+					"name": "AddUserSingleGroupDoesNotExist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f0ed448-5edb-4e5b-b8ea-a7991296980a",
+								"exec": [
+									"pm.test(\"Unsuccessful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([404]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"group does not exist\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"test\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "AddGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4d961be-f9df-4ac2-9ba8-4745d2a65474",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userids\":[]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "name=family"
+						},
+						"url": {
+							"raw": "{{base}}groups",
+							"host": [
+								"{{base}}groups"
+							]
+						},
+						"description": "Add a new group"
+					},
+					"response": []
+				},
+				{
+					"name": "AddUserSingleGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8937d5e8-2bf7-4a88-bf1a-ca81e7c7f077",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include('{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"family\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"family\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserSingleGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "82b1b58d-3e17-49a7-9197-7a582be8fd54",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"family\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroupOneUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "749d2ef3-e8c0-4655-b1da-ca6357a6ee41",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Group deleted\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/family",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"family"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserNoGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "56186c9d-bc27-4d14-a47f-bec7f42ed429",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserDataAddSingleGroupThatDoesNotExist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa17dfb6-c86f-4da7-9bab-7a2c5063f041",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Cannot update user\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"georgei\",\"last_name\":\"bluthsr\",\"groups\":[\"family\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddGroupAgain",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32fa9fc2-dea0-43fd-9a1c-99b6c4f20645",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userids\":[]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "name=family"
+						},
+						"url": {
+							"raw": "{{base}}groups",
+							"host": [
+								"{{base}}groups"
+							]
+						},
+						"description": "Add a new group"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserData",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9896618-3368-42dd-90b1-6fb07e76ffc2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"family\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"family\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserSingleGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "43f4ca2a-04c8-40b9-b20b-ac4a9da64113",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"User deleted\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						},
+						"description": "Delete a user with no group associations"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroupNoUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4e152bd0-2dce-4c13-91a3-db8d1fc2955f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Group deleted\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/family",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"family"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "basic user tests",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "AdvancedUpdating",
+			"item": [
+				{
+					"name": "AddGroupsGreen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "name=green"
+						},
+						"url": {
+							"raw": "{{base}}groups",
+							"host": [
+								"{{base}}groups"
+							]
+						},
+						"description": "add a bunch of groups"
+					},
+					"response": []
+				},
+				{
+					"name": "AddGroupsOrange",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "name=orange"
+						},
+						"url": {
+							"raw": "{{base}}groups",
+							"host": [
+								"{{base}}groups"
+							]
+						},
+						"description": "add a bunch of groups"
+					},
+					"response": []
+				},
+				{
+					"name": "AddGroupsOrangeRed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "name=red"
+						},
+						"url": {
+							"raw": "{{base}}groups",
+							"host": [
+								"{{base}}groups"
+							]
+						},
+						"description": "add a bunch of groups"
+					},
+					"response": []
+				},
+				{
+					"name": "AddGroupsPurple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "name=purple"
+						},
+						"url": {
+							"raw": "{{base}}groups",
+							"host": [
+								"{{base}}groups"
+							]
+						},
+						"description": "add a bunch of groups"
+					},
+					"response": []
+				},
+				{
+					"name": "AddGroupsBlack",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "name=black"
+						},
+						"url": {
+							"raw": "{{base}}groups",
+							"host": [
+								"{{base}}groups"
+							]
+						},
+						"description": "add a bunch of groups"
+					},
+					"response": []
+				},
+				{
+					"name": "AddUserMultipleGroupsUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6bb3fe45-0fc9-4ad4-99b7-0f91c31587c3",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"orange\",\"red\",\"purple\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"orange\",\"red\",\"purple\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "GetGroupWithUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "de51ec0b-1d77-4db3-a998-7b35a0e3dbf5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userids\":[\"gbluth\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/orange",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"orange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddUserMultipleGroupsSameAsUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b25d69e1-d608-4aa7-8fbf-64b84f4dfe36",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"mbluth\",\"first_name\":\"michael\",\"last_name\":\"bluth\",\"groups\":[\"orange\",\"red\",\"purple\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"mbluth\",\"first_name\":\"michael\",\"last_name\":\"bluth\",\"groups\":[\"orange\",\"red\",\"purple\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "GetGroupWithUser1User2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "12c11d72-00d7-47b0-a908-c66c29b94f59",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userids\":[\"gbluth\",\"mbluth\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/orange",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"orange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserDataRemoveOneGroup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d95d806-06d8-40a3-95d7-bd66504863d6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include('{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"red\",\"purple\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gbluth\",\"first_name\":\"george\",\"last_name\":\"bluth\",\"groups\":[\"red\",\"purple\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users/gbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gbluth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetGroupWithUser2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e748ba8f-4ed3-4123-9f88-06a6c91d098a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userids\":[\"mbluth\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/orange",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"orange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddUserMultipleGroups1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "686e7958-7d47-4037-bc02-aa2fa13cb858",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gmbluth\",\"first_name\":\"georgemichael\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gmbluth\",\"first_name\":\"georgemichael\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "AddUserMultipleGroups2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a1d6835a-54ac-4ee9-8615-40bf331744e1",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"bbluth\",\"first_name\":\"buster\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"bbluth\",\"first_name\":\"buster\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "AddUserMultipleGroups3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f6d6ed2c-89d7-411a-b0df-ef3b75228bc7",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"lbluth\",\"first_name\":\"lucille\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"lbluth\",\"first_name\":\"lucille\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "AddUserMultipleGroups4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0da041df-3f25-4a33-8662-70bb3e9838f8",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gobbluth\",\"first_name\":\"gob\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\":\"gobbluth\",\"first_name\":\"gob\",\"last_name\":\"bluth\",\"groups\":[\"black\",\"red\",\"green\"]}"
+						},
+						"url": {
+							"raw": "{{base}}users",
+							"host": [
+								"{{base}}users"
+							]
+						},
+						"description": "add a user with no group"
+					},
+					"response": []
+				},
+				{
+					"name": "GetGroupWithUser1234",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ee9761d-edfa-41a5-91e2-03bb260b7424",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body({\"userids\":[\"gmbluth\",\"bbluth\",\"lbluth\",\"gobbluth\"]});",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/black",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"black"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateGroupRemoveTwoUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d09afddf-38e5-42e0-8b45-266fdec45438",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include('{\"userids\":[\"lbluth\",\"bbluth\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userids\":[\"lbluth\",\"bbluth\"]}"
+						},
+						"url": {
+							"raw": "{{base}}groups/black",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"black"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetGroupWithUsers23",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c0723d1-9bb1-4ac2-be06-01ed0d7c2bca",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body({\"userids\":[\"bbluth\",\"lbluth\"]});",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/black",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"black"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser1GroupRemovedAfterGroupUpdate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b30cd12d-6509-4c3a-a083-f4329d9bb24d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gmbluth\",\"first_name\":\"georgemichael\",\"last_name\":\"bluth\",\"groups\":[\"red\",\"green\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}users/gmbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gmbluth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroupMultUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "50153f49-0aaf-4380-870e-14ed6c620221",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"Group deleted\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}groups/red",
+							"host": [
+								"{{base}}groups"
+							],
+							"path": [
+								"red"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser1AfterActiveGroupRemoved",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d3bd3bc8-a7d6-4462-a57e-8f0292cdd7a6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body('{\"userid\":\"gmbluth\",\"first_name\":\"georgemichael\",\"last_name\":\"bluth\",\"groups\":[\"green\"]}');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}users/gmbluth",
+							"host": [
+								"{{base}}users"
+							],
+							"path": [
+								"gmbluth"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Multiple groups and multiple users - updating interactions",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6b557459-8247-4e55-b11d-8ced6fb08fde",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fb381709-5850-4fcd-ab95-9c7273717a58",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "bcded44e-9d26-4f55-9c45-e888e719a0e9",
+			"key": "base",
+			"value": "http://localhost:3000/api/v1/"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

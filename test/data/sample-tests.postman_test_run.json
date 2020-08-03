@@ -1,0 +1,1676 @@
+{
+	"id": "b135253a-eb21-4ea0-816f-1180e429a5f6",
+	"name": "sample-tests",
+	"timestamp": "2020-08-02T23:02:57.768Z",
+	"collection_id": "32e033a8-cca2-4eb4-9ac6-1c5db0001d89",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 108,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "7c319ccf-a35e-4551-964c-7d33c02dd40b",
+			"name": "AddUserNoGroup",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 30,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				30
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "509f5766-c318-419d-a554-a74c4c8d7bba",
+			"name": "GetUserNoGroup",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "dc16e35d-9055-4a74-97b0-8ea4ac77ec92",
+			"name": "UpdateUserData",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 59,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				59
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "2b21b907-e545-4e7b-8b30-589b32178033",
+			"name": "GetUserThatDoesNotExist",
+			"url": "http://localhost:3000/api/v1//users/fancypants",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Response time is less than 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Response time is less than 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "29a858ce-7ac3-4fca-a051-ded0240ab2a5",
+			"name": "DeleteUserNoGroup",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response time is less than 200ms": true,
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Response time is less than 200ms": true,
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "8be7d5bc-ae4d-4732-ad90-d18a78792f13",
+			"name": "DeleteUserThatDoesNotExist",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 8,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Response time is less than 200ms": true,
+				"Status code is 404": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Response time is less than 200ms": true,
+					"Status code is 404": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "54f90653-bb69-4d46-8b6b-2d25fb559356",
+			"name": "AddGroupNoUsers",
+			"url": "http://localhost:3000/api/v1/groups",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "e7c5d971-ec03-4e67-8e3a-84555ceac421",
+			"name": "GetGroupNoUsers",
+			"url": "http://localhost:3000/api/v1/groups/family",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "945c81ed-8788-480c-b09f-81c16f23e671",
+			"name": "DeleteGroupNoUsers",
+			"url": "http://localhost:3000/api/v1/groups/family",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				31
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "26479993-34c3-4408-ba85-f2528b3bb1b2",
+			"name": "AddUserSingleGroupDoesNotExist",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 12,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Unsuccessful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Unsuccessful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Unsuccessful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "c7bece4c-8b34-4444-b137-e110619b31f3",
+			"name": "AddGroup",
+			"url": "http://localhost:3000/api/v1/groups",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "6e43337c-4dab-4023-bcc9-fdb16649927e",
+			"name": "AddUserSingleGroup",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 23,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "f2426f45-5594-4002-b4f2-f305b1058405",
+			"name": "GetUserSingleGroup",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "2b06e4af-08c2-4bb5-8e18-a134c86d529a",
+			"name": "DeleteGroupOneUser",
+			"url": "http://localhost:3000/api/v1/groups/family",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "b054a493-9084-4d2d-9de1-7f1652c91bc7",
+			"name": "GetUserNoGroup",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "438a97b4-185d-4b84-b6ef-9e8ac0a924f2",
+			"name": "UpdateUserDataAddSingleGroupThatDoesNotExist",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 12,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Response time is less than 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Response time is less than 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "65981b3e-31f7-4476-b09a-642cae914a19",
+			"name": "AddGroupAgain",
+			"url": "http://localhost:3000/api/v1/groups",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "0a426fca-7d49-4721-b571-c1bb97c3e11c",
+			"name": "UpdateUserData",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "39d9a59c-b7df-413b-98a0-e2626824e37e",
+			"name": "DeleteUserSingleGroup",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 32,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response time is less than 200ms": true,
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				32
+			],
+			"allTests": [
+				{
+					"Response time is less than 200ms": true,
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "f9b6efa1-7177-4afe-922f-382ee1ba6e5e",
+			"name": "DeleteGroupNoUsers",
+			"url": "http://localhost:3000/api/v1/groups/family",
+			"time": 29,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				29
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "c4cd991f-04d2-4ec2-8413-07ffa5dc4575",
+			"name": "AddGroupsGreen",
+			"url": "http://localhost:3000/api/v1/groups",
+			"time": 7,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				7
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a798bb01-9d4b-411a-ab5a-c05435fa8689",
+			"name": "AddGroupsOrange",
+			"url": "http://localhost:3000/api/v1/groups",
+			"time": 8,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d77abd26-03c4-4b04-abe3-8859390e88da",
+			"name": "AddGroupsOrangeRed",
+			"url": "http://localhost:3000/api/v1/groups",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				22
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "46303c01-09b4-4d22-a00f-2f728c8be30f",
+			"name": "AddGroupsPurple",
+			"url": "http://localhost:3000/api/v1/groups",
+			"time": 8,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "12a1fdcf-4b79-4a6a-bf89-4f8d1d70da1b",
+			"name": "AddGroupsBlack",
+			"url": "http://localhost:3000/api/v1/groups",
+			"time": 8,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b26f5e57-a0ff-407b-aa14-e966889c8dba",
+			"name": "AddUserMultipleGroupsUser1",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 56,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				56
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "0ff70186-786f-4fc2-9b66-6b303dbbf410",
+			"name": "GetGroupWithUser1",
+			"url": "http://localhost:3000/api/v1/groups/orange",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "58ea774e-999e-462c-a041-66fefb5e0743",
+			"name": "AddUserMultipleGroupsSameAsUser1",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 54,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				54
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "253c6ae2-3dce-44ca-893b-641654faff07",
+			"name": "GetGroupWithUser1User2",
+			"url": "http://localhost:3000/api/v1/groups/orange",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "b336d539-0561-4e64-83fa-c9f1335b80d6",
+			"name": "UpdateUserDataRemoveOneGroup",
+			"url": "http://localhost:3000/api/v1/users/gbluth",
+			"time": 30,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				30
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "afb745f0-9351-45ee-92a3-df5ce91919c7",
+			"name": "GetGroupWithUser2",
+			"url": "http://localhost:3000/api/v1/groups/orange",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "2c3806d5-c0fe-46aa-ad7d-57245c1f1de6",
+			"name": "AddUserMultipleGroups1",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 61,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				61
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "b999ec42-1791-4bb5-a665-33888b5ab207",
+			"name": "AddUserMultipleGroups2",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 61,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				61
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "4852b262-c3ef-4aa4-9e8b-6ebc9987d524",
+			"name": "AddUserMultipleGroups3",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 76,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				76
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "e664189b-1e32-4b60-a3f3-889d761a2b29",
+			"name": "AddUserMultipleGroups4",
+			"url": "http://localhost:3000/api/v1/users",
+			"time": 80,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				80
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "8fd48e2c-3852-446c-b46a-edbf0b2550f2",
+			"name": "GetGroupWithUser1234",
+			"url": "http://localhost:3000/api/v1/groups/black",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "2b75956d-0d04-4690-a822-5bf655e5cfdd",
+			"name": "UpdateGroupRemoveTwoUsers",
+			"url": "http://localhost:3000/api/v1/groups/black",
+			"time": 46,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				46
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "35efa0f9-509d-44a7-b907-dc184fe096d9",
+			"name": "GetGroupWithUsers23",
+			"url": "http://localhost:3000/api/v1/groups/black",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "8f39728a-a9ba-4140-abca-46af33b8b08c",
+			"name": "GetUser1GroupRemovedAfterGroupUpdate",
+			"url": "http://localhost:3000/api/v1/users/gmbluth",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "515e8deb-3c66-4532-9c43-366b2c4e6964",
+			"name": "DeleteGroupMultUsers",
+			"url": "http://localhost:3000/api/v1/groups/red",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				31
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "ccba166e-f575-4023-a506-456156df7436",
+			"name": "GetUser1AfterActiveGroupRemoved",
+			"url": "http://localhost:3000/api/v1/users/gmbluth",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Body is correct": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1071,
+	"collection": {
+		"requests": [
+			{
+				"id": "7c319ccf-a35e-4551-964c-7d33c02dd40b",
+				"method": "POST"
+			},
+			{
+				"id": "509f5766-c318-419d-a554-a74c4c8d7bba",
+				"method": "GET"
+			},
+			{
+				"id": "dc16e35d-9055-4a74-97b0-8ea4ac77ec92",
+				"method": "PUT"
+			},
+			{
+				"id": "2b21b907-e545-4e7b-8b30-589b32178033",
+				"method": "GET"
+			},
+			{
+				"id": "29a858ce-7ac3-4fca-a051-ded0240ab2a5",
+				"method": "DELETE"
+			},
+			{
+				"id": "8be7d5bc-ae4d-4732-ad90-d18a78792f13",
+				"method": "DELETE"
+			},
+			{
+				"id": "54f90653-bb69-4d46-8b6b-2d25fb559356",
+				"method": "POST"
+			},
+			{
+				"id": "e7c5d971-ec03-4e67-8e3a-84555ceac421",
+				"method": "GET"
+			},
+			{
+				"id": "945c81ed-8788-480c-b09f-81c16f23e671",
+				"method": "DELETE"
+			},
+			{
+				"id": "26479993-34c3-4408-ba85-f2528b3bb1b2",
+				"method": "POST"
+			},
+			{
+				"id": "c7bece4c-8b34-4444-b137-e110619b31f3",
+				"method": "POST"
+			},
+			{
+				"id": "6e43337c-4dab-4023-bcc9-fdb16649927e",
+				"method": "POST"
+			},
+			{
+				"id": "f2426f45-5594-4002-b4f2-f305b1058405",
+				"method": "GET"
+			},
+			{
+				"id": "2b06e4af-08c2-4bb5-8e18-a134c86d529a",
+				"method": "DELETE"
+			},
+			{
+				"id": "b054a493-9084-4d2d-9de1-7f1652c91bc7",
+				"method": "GET"
+			},
+			{
+				"id": "438a97b4-185d-4b84-b6ef-9e8ac0a924f2",
+				"method": "PUT"
+			},
+			{
+				"id": "65981b3e-31f7-4476-b09a-642cae914a19",
+				"method": "POST"
+			},
+			{
+				"id": "0a426fca-7d49-4721-b571-c1bb97c3e11c",
+				"method": "PUT"
+			},
+			{
+				"id": "39d9a59c-b7df-413b-98a0-e2626824e37e",
+				"method": "DELETE"
+			},
+			{
+				"id": "f9b6efa1-7177-4afe-922f-382ee1ba6e5e",
+				"method": "DELETE"
+			},
+			{
+				"id": "c4cd991f-04d2-4ec2-8413-07ffa5dc4575",
+				"method": "POST"
+			},
+			{
+				"id": "a798bb01-9d4b-411a-ab5a-c05435fa8689",
+				"method": "POST"
+			},
+			{
+				"id": "d77abd26-03c4-4b04-abe3-8859390e88da",
+				"method": "POST"
+			},
+			{
+				"id": "46303c01-09b4-4d22-a00f-2f728c8be30f",
+				"method": "POST"
+			},
+			{
+				"id": "12a1fdcf-4b79-4a6a-bf89-4f8d1d70da1b",
+				"method": "POST"
+			},
+			{
+				"id": "b26f5e57-a0ff-407b-aa14-e966889c8dba",
+				"method": "POST"
+			},
+			{
+				"id": "0ff70186-786f-4fc2-9b66-6b303dbbf410",
+				"method": "GET"
+			},
+			{
+				"id": "58ea774e-999e-462c-a041-66fefb5e0743",
+				"method": "POST"
+			},
+			{
+				"id": "253c6ae2-3dce-44ca-893b-641654faff07",
+				"method": "GET"
+			},
+			{
+				"id": "b336d539-0561-4e64-83fa-c9f1335b80d6",
+				"method": "PUT"
+			},
+			{
+				"id": "afb745f0-9351-45ee-92a3-df5ce91919c7",
+				"method": "GET"
+			},
+			{
+				"id": "2c3806d5-c0fe-46aa-ad7d-57245c1f1de6",
+				"method": "POST"
+			},
+			{
+				"id": "b999ec42-1791-4bb5-a665-33888b5ab207",
+				"method": "POST"
+			},
+			{
+				"id": "4852b262-c3ef-4aa4-9e8b-6ebc9987d524",
+				"method": "POST"
+			},
+			{
+				"id": "e664189b-1e32-4b60-a3f3-889d761a2b29",
+				"method": "POST"
+			},
+			{
+				"id": "8fd48e2c-3852-446c-b46a-edbf0b2550f2",
+				"method": "GET"
+			},
+			{
+				"id": "2b75956d-0d04-4690-a822-5bf655e5cfdd",
+				"method": "PUT"
+			},
+			{
+				"id": "35efa0f9-509d-44a7-b907-dc184fe096d9",
+				"method": "GET"
+			},
+			{
+				"id": "8f39728a-a9ba-4140-abca-46af33b8b08c",
+				"method": "GET"
+			},
+			{
+				"id": "515e8deb-3c66-4532-9c43-366b2c4e6964",
+				"method": "DELETE"
+			},
+			{
+				"id": "ccba166e-f575-4023-a506-456156df7436",
+				"method": "GET"
+			}
+		]
+	}
+}

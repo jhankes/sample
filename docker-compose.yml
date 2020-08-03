@@ -1,0 +1,27 @@
+version: "3"
+services:
+  web:
+    image: jhankes/sample:0.1
+    links: 
+      - "db:postgres"
+    ports:
+      - "3000:3000"
+    environment:
+      - SAMPLE_HOST=sample_db_1
+    depends_on:
+      - "db"
+    command: >
+      /bin/bash -c "
+        echo sleeping;
+        sleep 15;
+        app;
+      "
+  db:
+    image: postgres:12.3 
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=sample 
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=sample
+      - POSTGRES_USER=sample
